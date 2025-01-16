@@ -16,7 +16,7 @@ To forecast over longer periods, we call the previously computed state of the sy
 For example, if we want to know the state of the system after one month, we can perform the following calculation: [[xa(1)],[xb(1)]] = [[0.8, 0.1],[0.2, 0.9]][[0.5],[0.5]] = [[0.45],[0.55]]. 
 
 The equation above tells us that if at month zero, 50% of the antelope population is in each reserve, then 45% will be in reserve A and 55% in reserve B one month later. In the code block below, I’ll show you how to model this dynamical system over longer periods:
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -66,7 +66,7 @@ In Markov chains, the state vectors at successive time intervals are probability
 Like linear dynamical systems, we can use Markov chains to model animal migrations between reservers, but instead of finding the distribution of a population of antelopes across multiple reserves we will instead find the probability that single tiger resides in one of three reserves (reserve A, B, and C). If, at t=0 we know with certainty that the tiger is in reserve B, we can express the state vector of the system as x(0) = [0, 1, 0], reflecting the fact that there is a 0% probability the tiger is in reserve A or C, and an 100% probability it’s in reverse B. 
 
 In the code block below, I’ll show you how to model this dynamical system over longer stretched of time:
-```
+```python
 transition_matrix =  np.array([[0.5, 0.4,0.6],[0.2, 0.2, 0.3], [0.3, 0.4, 0.1]])
 initial_state = np.array([[0],[1],[0]])
 cycles = 50
